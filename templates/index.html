@@ -3,81 +3,228 @@
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Global Coffee Analysis</title>
+      <title>Global Coffee Analysis </title>
 
-  <!-- <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script><style id="plotly.js-style-global"></style> -->
+   <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script><style id="plotly.js-style-global"></style> 
 
 </head>
 <body>
-  <h1>{{title}}</h1>
+  <h1>Global Coffee Analysis :D</h1>
 
-  <!-- <div id="plot">
-
-  </div>
-
-
-  
-
-  <h2>Iris-setosa</h2>
-  <div id="plot1"></div>
-  <h2>Iris-setosa</h2>
-  <h2>Iris-setosa</h2>
-
+<div id="chart" style="width: 800px; height: 300px;">  </div>
+<div id="chart2" style="width: 400px; height: 300px;"> </div>
+<div id="chart3" style="width: 400px; height: 300px;"></div>
 
   <script>
-      let data = {{iris|tojson|safe}}
-      console.log(data)
+let countries = ['Angola','Bolivia (Plurinational State of)','Brazil','Burundi','Ecuador','Indonesia','Madagascar',
+  'Malawi',
+  'Papua New Guinea',
+  'Paraguay',
+  'Peru',
+  'Rwanda',
+  'Timor-Leste',
+  'Zimbabwe',
+  'Congo',
+  'Cuba',
+  'Dominican Republic',
+  'Haiti',
+  'Philippines',
+  'Tanzania',
+  'Zambia',
+  'Cameroon',
+  'Central African Republic',
+  'Colombia',
+  'Costa Rica',
+  "Côte d'Ivoire",
+  'Democratic Republic of Congo',
+  'El Salvador',
+  'Equatorial Guinea',
+  'Ethiopia',
+  'Gabon',
+  'Ghana',
+  'Guatemala',
+  'Guinea',
+  'Guyana',
+  'Honduras',
+  'India',
+  'Jamaica',
+  'Kenya',
+  "Lao People's Democratic Republic",
+  'Liberia',
+  'Mexico',
+  'Nepal',
+  'Nicaragua',
+  'Nigeria',
+  'Panama',
+  'Sierra Leone',
+  'Sri Lanka',
+  'Thailand',
+  'Togo',
+  'Trinidad & Tobago',
+  'Uganda',
+  'Venezuela',
+  'Viet Nam',
+  'Yemen',
+  'Angola',
+  'Bolivia (Plurinational State of)',
+  'Brazil',
+  'Burundi',
+  'Cameroon',
+  'Central African Republic',
+  'Colombia',
+  'Congo',
+  'Costa Rica',
+  "Côte d'Ivoire",
+  'Cuba',
+  'Democratic Republic of Congo',
+  'Dominican Republic',
+  'Ecuador',
+  'El Salvador',
+  'Equatorial Guinea',
+  'Ethiopia',
+  'Gabon',
+  'Ghana',
+  'Guatemala',
+  'Guinea',
+  'Guyana',
+  'Haiti',
+  'Honduras',
+  'India',
+  'Indonesia',
+  'Jamaica',
+  'Kenya',
+  "Lao People's Democratic Republic",
+  'Liberia',
+  'Madagascar',
+  'Malawi',
+  'Mexico',
+  'Nepal',
+  'Nicaragua',
+  'Nigeria',
+  'Panama',
+  'Papua New Guinea',
+  'Paraguay',
+  'Peru',
+  'Philippines',
+  'Rwanda',
+  'Sierra Leone',
+  'Sri Lanka',
+  'Tanzania',
+  'Thailand',
+  'Timor-Leste',
+  'Togo',
+  'Trinidad & Tobago',
+  'Uganda',
+  'Venezuela',
+  'Viet Nam',
+  'Yemen',
+  'Zambia',
+  'Zimbabwe',
+  'Austria',
+  'Belgium',
+  'Belgium/Luxembourg',
+  'Bulgaria',
+  'Croatia',
+  'Cyprus',
+  'Czechia',
+  'Denmark',
+  'Estonia',
+  'Finland',
+  'France',
+  'Germany',
+  'Greece',
+  'Hungary',
+  'Ireland',
+  'Italy',
+  'Latvia',
+  'Lithuania',
+  'Luxembourg',
+  'Malta',
+  'Netherlands',
+  'Poland',
+  'Portugal',
+  'Romania',
+  'Slovakia',
+  'Slovenia',
+  'Spain',
+  'Sweden',
+  'Japan',
+  'Norway',
+  'Russian Federation',
+  'Switzerland',
+  'Tunisia',
+  'United Kingdom',
+  'United States of America']
 
-      let x = data.petallengthcm
-      let y = data.petalwidthcm
+    let data = [
+      {
+        x: ["Croatia", "Austria", "Slovenia", "Ireland", "Belgium/Luxembourg", "Belgium", "Bulgaria", "Romania", "USA", "RussianFederation" , "Greece" , "Switzerland", "Norway",],
 
-      let trace = {
-          x: x,
-          y: y,
-          mode: 'markers',
-          type: 'scatter'
+        y: [990000000, 100000000, 100000001, 100000002, 100000003, 100000004, 200000000, 300000000, 40000000000, 500000000, 600000000, 700000000, 800000000, 900000000, 100000000, 1100000000, 1200000000,1300000000],
+
+        type: "bar",
+        name: "Average Yearly Consumption"
       }
+    ];
 
-      let layout = {
-          title: 'Iris Petal Length vs Width',
-          xaxis: {
-              title: 'Petal Length (cm)'
-          },
-          yaxis: {
-              title: 'Petal Width (cm)'
-          }
+    let layout = {
+      title: "Average Yearly Consumption of Coffee by Importing Country",
+      xaxis: {
+        title: "Countries"
+      },
+      yaxis: {
+        title: "Average Yearly Consumption (kg)"
       }
+    };
 
-      Plotly.newPlot('plot', [trace], layout)
+    Plotly.newPlot('chart', data, layout);
 
 
-      let data1 = {{iris_setosa|tojson|safe}}
-      console.log(data1)
+    let data2 = [
+      {
+        x: [1990, 1995, 2000, 2005, 2010, 2015, 2020],
+        y: [0, 0.5, 1, 1.5, 2, 2.5, 3],
+        mode: 'lines',
+        name: 'Data Series Brazil'
+      },
 
-      let x1 = data1.petallengthcm
-      let y1 = data1.petalwidthcm
+    ];
 
-      let trace1 = {
-          x: x1,
-          y: y1,
-          mode: 'markers',
-          type: 'line'
+    let layout2 = {
+      title: 'Top Exporting Country',
+      xaxis: {
+        title: 'Brazil'
+      },
+      yaxis: {
+        title: 'Export Amount (kg)'
       }
+    };
 
-      let layout1 = {
-          title: 'Iris Setosa Petal Length vs Width',
-          xaxis: {
-              title: 'Petal Length (cm)'
-          },
-          yaxis: {
-              title: 'Petal Width (cm)'
-          }
+    Plotly.newPlot('chart2', data2, layout2);
+
+
+    let data3 = [
+      {
+        x: [1990, 1995, 2000, 2005, 2010, 2015, 2020],
+
+        y: [.05, 1, 2, 3,],
+        mode: 'lines',
+        name: 'Data Series United States of America'
+      },
+
+    ];
+
+    let layout3 = {
+      title: 'Top Importing Country',
+      xaxis: {
+        title: 'United States Of America'
+      },
+      yaxis: {
+        title: 'Export Amount (kg)'
       }
+    };
 
-      Plotly.newPlot('plot1', [trace1], layout1)
-
-  </script> -->
-
-
+    Plotly.newPlot('chart3', data3, layout3);
+  </script>
 </body>
 </html>
